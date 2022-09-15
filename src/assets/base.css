@@ -8,10 +8,36 @@ body{
 }
 
 .cabecalho {
+  display: flex;
   background-color: #f10c49;
   color: white;
   height: 60px;
   font-size: xx-large;
+  justify-content: space-between;
+  padding-right: 15px;
+}
+
+.cabecalho input {
+  height: 20px;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.cabecalho button {
+  height: 24px;
+  width: 80px;
+  border-radius: 5px;
+  color: white;
+  background-color: #f10c49;
+}
+
+.cabecalho button:hover {
+  border: 2px solid black;
+}
+
+.cabecalho span:hover {
+  color: black;
 }
 
 .cabecalho span {
@@ -41,3 +67,13 @@ hr {
   max-width: 1205px;
 }
 
+footer { 
+  background-color: #f10c49;
+  height: 80px;
+}
+
+footer p {
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}

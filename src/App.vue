@@ -9,9 +9,9 @@ import BlocoFilme from "./components/BlocoFilme.vue";
       <nav>
         <HeadeCabecalho />
       </nav>
-
       <div>
-        <p>Animação <hr /></p>
+        <div>
+          <p>Animação <hr /></p>
         <div class="conteudo">
           <BlocoFilme />
           <BlocoFilme />
@@ -19,7 +19,35 @@ import BlocoFilme from "./components/BlocoFilme.vue";
           <BlocoFilme />
           <BlocoFilme />
         </div>
+        </div>
+
+        <div>
+          <p>Ação <hr /></p>
+        <div class="conteudo">
+          <BlocoFilme />
+          <BlocoFilme />
+          <BlocoFilme />
+          <BlocoFilme />
+          <BlocoFilme />
+        </div>
+        </div>
+
+        <div>
+          <p>Drama <hr /></p>
+        <div class="conteudo">
+          <BlocoFilme />
+          <BlocoFilme />
+          <BlocoFilme />
+          <BlocoFilme />
+          <BlocoFilme />
+        </div>
+        </div>
+
+        
       </div>
     </main>
+    <footer>
+      <P> FilmesShow</P>
+    </footer>
   </body>
 </template>
