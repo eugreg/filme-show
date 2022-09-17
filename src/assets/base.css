@@ -9,35 +9,38 @@ body{
 
 .cabecalho {
   display: flex;
-  background-color: #f10c49;
   color: white;
   height: 60px;
   font-size: xx-large;
   justify-content: space-between;
-  padding-right: 15px;
+  margin-left: 20px;
+  margin-top: 20px;
+  border: solid 2px yellow;
+  border-top: solid black 2px;
+  border-left: solid black 2px;
+  border-right: solid black 2px;
 }
 
-.cabecalho input {
-  height: 20px;
-  margin-right: 5px;
-  border-radius: 5px;
-  padding-left: 10px;
-}
-
-.cabecalho button {
-  height: 24px;
-  width: 80px;
-  border-radius: 5px;
-  color: white;
-  background-color: #f10c49;
-}
-
-.cabecalho button:hover {
-  border: 2px solid black;
+.cabecalho span {
+  border-radius: 50px;
+  margin-right: 20px;
+  padding: 10px;
 }
 
 .cabecalho span:hover {
-  color: black;
+  background-color: white;
+  color: black; 
+  border-radius: 50px;
+  margin-right: 20px;
+  padding: 10px;
+}
+
+.cabecalho button {
+  height: 30px;
+  width: 90px;
+  border-radius: 5px;
+  font-size: large;
+  padding-top: 5px;
 }
 
 .cabecalho span {
@@ -46,15 +49,27 @@ body{
 
 .films img {
   width: 200px;
-  padding-left: 50px;
-  padding-top: 20px;
+  margin: 17px;
+}
+
+.films :hover {
+  width: 210px;
+  margin: 1px;
+  border: solid yellow 3px;
+  border-top: solid black 3px;
+  border-left: solid black 3px;
+  border-right: solid black 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 0px;
+
 }
 
 p {
   color:  white;
   margin-top: 80px;
   font-size: xx-large;
-  margin-left: 380px;
+  margin-left: 420px;
 }
 
 .conteudo {
@@ -68,12 +83,14 @@ hr {
 }
 
 footer { 
-  background-color: #f10c49;
-  height: 80px;
+  border-top: solid yellow 2px;
+  height: 50px;
+  margin-top: 60px;
 }
 
 footer p {
   display: flex;
   justify-content: center;
-  padding-top: 25px;
+  margin: 50px;
 }
+

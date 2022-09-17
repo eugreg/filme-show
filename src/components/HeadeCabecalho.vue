@@ -5,15 +5,15 @@ export default {};
 <template>
   <header>
     <div class="cabecalho">
-      <div>
+      <div class="menu-op">
         <span>FilmesShow</span>
         <span>Categorias</span>
         <span>Diretores</span>
         <span>Atores</span>
       </div>
       <div>
-        <input type="text">
-        <button>Pesquisar</button>
+        <span class="login"><img src="" alt=""> Minha Conta</span>
+        <button></button>
       </div>
     </div>
   </header>
