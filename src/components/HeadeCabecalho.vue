@@ -5,15 +5,23 @@ export default {};
 <template>
   <header>
     <div class="cabecalho">
-      <div class="menu-op">
-        <span>FilmesShow</span>
+      <div>
+        <span>
+          <RouterLink to="/">FilmeShow</RouterLink>
+        </span>
         <span>Categorias</span>
         <span>Diretores</span>
-        <span>Atores</span>
+        <span>
+          <RouterLink to="/ator">Atores</RouterLink>
+        </span>
       </div>
       <div>
-        <span class="login"><img src="" alt=""> Minha Conta</span>
-        <button></button>
+        <span>Minha Conta</span>
+        <button>
+          <RouterLink to="/pesquisa" class="button-pesquisar"
+            >Pesquisar
+          </RouterLink>
+        </button>
       </div>
     </div>
   </header>

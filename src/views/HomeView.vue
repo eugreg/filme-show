@@ -1,9 +1,42 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import BlocoFilme from '../components/BlocoFilme.vue';
+import CompRodape from '../components/CompRodape.vue';
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="main">
+      <div>
+        <p>Últimos Lançamentos</p>
+      </div>
+      <div class="conteudo">
+        <BlocoFilme />
+        <BlocoFilme />
+        <BlocoFilme />
+        <BlocoFilme />
+        <BlocoFilme />
+      </div>
+      <div class="conteudo">
+        <BlocoFilme />
+        <BlocoFilme />
+        <BlocoFilme />
+        <BlocoFilme />
+        <BlocoFilme />
+      </div>
+      <div class="conteudo">
+        <BlocoFilme />
+        <BlocoFilme />
+        <BlocoFilme />
+        <BlocoFilme />
+        <BlocoFilme />
+      </div>
+      <div class="conteudo">
+        <BlocoFilme />
+        <BlocoFilme />
+        <BlocoFilme />
+        <BlocoFilme />
+        <BlocoFilme />
+      </div>
+    </div>
+    <CompRodape />
 </template>
+

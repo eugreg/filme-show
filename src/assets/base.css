@@ -1,6 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 *{
   margin: 0;
   padding: 0;
+  font-family: 'Roboto Mono', monospace;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: black;
 }
 
 body{
@@ -10,21 +22,23 @@ body{
 .cabecalho {
   display: flex;
   color: white;
-  height: 60px;
-  font-size: xx-large;
+  height: 80px;
+  font-size: 30px;
   justify-content: space-between;
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-top: 40px;
   border: solid 2px yellow;
   border-top: solid black 2px;
   border-left: solid black 2px;
   border-right: solid black 2px;
+  background: linear-gradient(0deg, #FFFF00 -129.13%,
+  rgba(217, 217, 217, 0) 50.29%);
 }
 
 .cabecalho span {
   border-radius: 50px;
   margin-right: 20px;
   padding: 10px;
+  margin-left: 50px;
 }
 
 .cabecalho span:hover {
@@ -35,16 +49,25 @@ body{
   padding: 10px;
 }
 
-.cabecalho button {
-  height: 30px;
-  width: 90px;
-  border-radius: 5px;
-  font-size: large;
-  padding-top: 5px;
+.button-pesquisar{
+  color: black;
 }
 
-.cabecalho span {
-  margin-left: 50px;
+.button-pesquisar:hover {
+  color: white;
+}
+
+.cabecalho button {
+  height: 50px;
+  width: 150px;
+  border-radius: 5px;
+  font-size: x-large;
+}
+
+.cabecalho button:hover {
+  background-color: black;
+  color: white;
+  border: solid 1px white;
 }
 
 .films img {
@@ -55,14 +78,10 @@ body{
 .films :hover {
   width: 210px;
   margin: 1px;
-  border: solid yellow 3px;
-  border-top: solid black 3px;
-  border-left: solid black 3px;
-  border-right: solid black 3px;
+  border-bottom: solid yellow 3px;
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 0px;
-
 }
 
 p {
@@ -78,9 +97,6 @@ p {
   justify-content: center;
 }
 
-hr {
-  max-width: 1205px;
-}
 
 footer { 
   border-top: solid yellow 2px;
@@ -92,5 +108,106 @@ footer p {
   display: flex;
   justify-content: center;
   margin: 50px;
+}
+
+.main {
+  margin-top: 200px;
+}
+
+.main p {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  font-size: 70px;
+}
+
+.descMovi {
+  background-color: rgb(15, 15, 15);
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+  margin: 300px;
+  margin-top: 1px;
+  font-size: 30px;
+}
+
+.info-movi {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  margin-left: 70px;
+}
+
+.titulo {
+  font-size: 40px;
+  border-bottom: #FFFF00 solid 2px;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.pesquisa {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.pesquisa input {
+  border: 2px solid gray;
+  background-color: black;
+  color: white;
+  width: 900px;
+  height: 140px;
+  font-size: 60px;
+  padding: 30px;
+}
+
+.pesquisa button {
+  border: 2px solid gray;
+  background-color: black;
+  color: white;
+  font-size: 60px;
+  padding: 20px;
+}
+
+.pesquisa button:hover{
+  border: 2px solid white;
+  background-color: white;
+  color: black;
+}
+
+.reposta {
+  background-color: rgba(128, 128, 128, 0.151);
+  width: 1800px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 120px;
+  margin-top: 80px;
+}
+
+.reposta h1 {
+  color: white;
+  font-size: 40px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  margin-top: 80px;
+}
+
+.conteudoR {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.conteudoRF {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 100px;
 }
 

@@ -1,5 +1,12 @@
+<script setup>
+import FilmeDesc from '../components/FilmeDesc.vue';
+import CompRodape from '../components/CompRodape.vue';
+
+</script>
+
 <template>
-    <div class="about">
-      <h1>This is an about page</h1>
+   <div class="main">
+        <FilmeDesc />
+        <CompRodape />
     </div>
-  </template>
+</template>
