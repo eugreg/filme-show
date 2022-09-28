@@ -9,11 +9,23 @@ export default {};
         <span>
           <RouterLink to="/">FilmeShow</RouterLink>
         </span>
-        <span>Categorias</span>
+        <span
+          ><select name="slect">
+            <option>Açao</option>
+            <option>Terror</option>
+            <option>Animaçao</option>
+            <option>Aventura</option>
+            <option>Ficcao Cientifica</option>
+            <option>Suspense</option>
+            <option>Açao e Aventura</option>
+            <option>Fantasia</option>
+            <option>Comedia</option>
+            <option>Drama</option>
+            <option>Romance</option>
+          </select></span
+        >
+        <span><RouterLink to="/lancamento">Lançamentos</RouterLink></span>
         <span>Diretores</span>
-        <span>
-          <RouterLink to="/ator">Atores</RouterLink>
-        </span>
       </div>
       <div>
         <span>Minha Conta</span>

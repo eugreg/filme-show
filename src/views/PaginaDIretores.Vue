@@ -6,7 +6,7 @@ import CompRodape from "../components/CompRodape.vue";
 <template>
   <div class="main">
     <div>
-      <p>Adicionados Recentemente</p>
+      <p>Diretores</p>
     </div>
     <div class="conteudo">
       <BlocoFilme />

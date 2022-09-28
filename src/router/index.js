@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import PaginaFilme from "../views/PaginaFilme.vue";
 import PaginaPesquisa from "../views/PaginaPesquisa.vue";
-
+import PaginaLancamento from "../views/PaginaLancamento.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,7 +22,11 @@ const router = createRouter({
       nome: "pesquisa",
       component: PaginaPesquisa,
     },
-
+    {
+      path: "/lancamento",
+      nome: "lacamentos",
+      component: PaginaLancamento,
+    },
   ],
 });
 
