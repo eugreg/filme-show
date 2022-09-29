@@ -6,7 +6,7 @@ import CompRodape from "../components/CompRodape.vue";
 <template>
   <div class="main">
     <div>
-      <p>Lançamentos</p>
+      <p>Romance</p>
     </div>
     <div class="conteudo">
       <BlocoFilme picture_src="src/assets/img/avatar.jpg" pic_link="/filme" />

@@ -1,5 +1,16 @@
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      destino: "",
+    };
+  },
+  methods: {
+    go() {
+      this.$router.push(this.destino);
+    },
+  },
+};
 </script>
 
 <template>
@@ -10,22 +21,19 @@ export default {};
           <RouterLink to="/">FilmeShow</RouterLink>
         </span>
         <span
-          ><select name="slect">
-            <option>Açao</option>
-            <option>Terror</option>
-            <option>Animaçao</option>
-            <option>Aventura</option>
-            <option>Ficcao Cientifica</option>
-            <option>Suspense</option>
-            <option>Açao e Aventura</option>
-            <option>Fantasia</option>
-            <option>Comedia</option>
-            <option>Drama</option>
-            <option>Romance</option>
+          ><select v-model="destino" @change="go">
+            <option value="/acao">açao e aventura</option>
+            <option value="/terror">Terror</option>
+            <option value="/animacao">Animaçao</option>
+            <option value="/ficcao">Ficcao Cientifica</option>
+            <option value="/suspense">Suspense</option>
+            <option value="/fantasia">Fantasia</option>
+            <option value="/comedia">Comedia</option>
+            <option value="/drama">Drama</option>
+            <option value="/romance">Romance</option>
           </select></span
         >
         <span><RouterLink to="/lancamento">Lançamentos</RouterLink></span>
-        <span>Diretores</span>
       </div>
       <div>
         <span>Minha Conta</span>

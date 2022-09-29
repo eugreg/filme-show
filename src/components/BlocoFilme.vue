@@ -1,12 +1,21 @@
 <script>
-export default {};
+export default {
+  name: "PictureCard",
+  props: {
+    picture_src: String,
+    pic_link: {
+      type: String,
+      default: "/",
+    },
+  },
+};
 </script>
 
 <template>
   <article>
     <div class="films">
-      <RouterLink to="/filme"> 
-        <img src="../assets/img/avatar.jpg" alt="linda imagem do avatar"/> 
+      <RouterLink :to="pic_link">
+        <img :src="picture_src" />
       </RouterLink>
     </div>
   </article>
