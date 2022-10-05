@@ -13,7 +13,7 @@ export default {
 
 <template>
   <article>
-    <div class="films">
+    <div class="films" >
       <RouterLink :to="pic_link">
         <img :src="picture_src" />
       </RouterLink>
