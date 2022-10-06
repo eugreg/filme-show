@@ -1,19 +1,26 @@
 <script>
-export default {};
+export default {
+  props: ["filme"],
+  methods: {
+    getPosterUrl(posterPath) {
+      return `https://image.tmdb.org/t/p/w500${posterPath}`;
+    },
+  },
+};
 </script>
 
 <template>
   <div class="descMovi">
     <div>
-      <img src="../assets/img/avatar.jpg" alt="linda imagem do avatar" />
+      <img
+        :src="getPosterUrl(filme.poster_path)"
+        alt="linda imagem do avatar"
+      />
     </div>
     <div class="info-movi">
-      <div class="titulo">Avatar</div>
+      <div class="titulo">{{ filme.title }}</div>
       <div class="descricao">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
-        Vero ratione obcaecati nostrum amet harum rem, dolorum, <br />
-        ipsum, in fugiat ducimus ea magni enim incidunt illum. <br />
-        Magni repellendus iusto voluptatum assumenda? <br />
+        {{ filme.overview }}
       </div>
     </div>
   </div>

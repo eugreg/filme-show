@@ -91,11 +91,7 @@ p {
   margin-left: 420px;
 }
 
-.conteudo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
+
 
 
 footer { 

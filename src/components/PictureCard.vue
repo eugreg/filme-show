@@ -4,8 +4,12 @@ export default {
   props: {
     picture_src: String,
     pic_link: {
-      type: String,
-      default: "/",
+      type: Object,
+    },
+  },
+  methods: {
+    retornaUrlFilme(id) {
+      return `/filmes/${id}`;
     },
   },
 };
@@ -13,8 +17,8 @@ export default {
 
 <template>
   <article>
-    <div class="films" >
-      <RouterLink :to="pic_link">
+    <div class="films">
+      <RouterLink :to="retornaUrlFilme(pic_link.id)">
         <img :src="picture_src" />
       </RouterLink>
     </div>

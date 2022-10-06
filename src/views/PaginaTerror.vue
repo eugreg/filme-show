@@ -1,7 +1,4 @@
-<script setup>
-import BlocoFilme from "../components/BlocoFilme.vue";
-import CompRodape from "../components/CompRodape.vue";
-</script>
+<script setup></script>
 
 <template>
   <div class="main">
