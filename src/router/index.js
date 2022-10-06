@@ -22,10 +22,10 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/filme/:id",
-      nome: "filme",
+      path: "/filmes/:id",
+      nome: "filmes",
       component: PaginaFilme,
-      props: 
+      props: true,
     },
     {
       path: "/pesquisa",
@@ -82,8 +82,6 @@ const router = createRouter({
       nome: "terror",
       component: PaginaTerror,
     },
- 
-    
   ],
 });
 
