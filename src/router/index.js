@@ -28,6 +28,12 @@ const router = createRouter({
       props: true,
     },
     {
+      path: "/filmes_por_genero/:id",
+      nome: "filmesPorGenero",
+      component: PaginaAnimacao,
+      props: true,
+    },
+    {
       path: "/pesquisa",
       nome: "pesquisa",
       component: PaginaPesquisa,

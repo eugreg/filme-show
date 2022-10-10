@@ -207,3 +207,19 @@ footer p {
   padding-bottom: 100px;
 }
 
+.select-cabecalho{
+  border: 0px;
+  color: white;
+  padding-top: 10px;
+  background-color: black;
+  width: 250px;
+  border-radius: 50px;
+  font-size: 30px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.select-cabecalho:hover{
+  color: black;
+  background-color: white;
+}
