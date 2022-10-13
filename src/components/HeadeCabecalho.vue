@@ -5,7 +5,7 @@ export default {
   data() {
     return {
       generos: [],
-      genero: ''
+      genero: "",
     };
   },
   async created() {
@@ -14,8 +14,6 @@ export default {
 
   methods: {
     go() {
-      console.log('chamou')
-      console.log(this.genero)
       this.$router.push(`/filmes_por_genero/${this.genero}`);
     },
   },
