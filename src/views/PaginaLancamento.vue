@@ -26,16 +26,13 @@ export default {
       <p>Lançamentos</p>
     </div>
     <div class="conteudo">
-      <!-- <PictureCard
+       <PictureCard
         v-for="lancamento of lancamentos"
         :key="lancamento.id"
         :picture_src="getPosterUrl(lancamento.poster_path)"
         :pic_link="lancamento"
-      /> -->
-      <PictureCard
-        :picture_src="getPosterUrl(lancamentos.poster_path)"
-        :pic_link="lancamentos"
-      />
+      /> 
+     
     </div>
   </div>
 </template>

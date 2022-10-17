@@ -12,10 +12,5 @@ export default class GeneroApi {
     );
     return data.results;
   }
-  async BuscarGeneros(id) {
-    const response = await axios.get(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=a37701b7a0845f3785cd83eb23add599&language=pt-BR${id}`
-    );
-    return response.data.results;
-  }
+  
 }

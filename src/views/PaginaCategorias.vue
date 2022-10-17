@@ -7,12 +7,15 @@ export default {
   props: ["id"],
   data() {
     return {
-      filme: {},
-      comedias: [],
+      genero: {},
+      generos: [],
     };
   },
+  async created(){
+    this.generos = await generoapi.BuscaFilmesPorGeneroP();
+  },
   async mounted() {
-    this.filme = await generoapi.BuscaFilmesPorGeneroP(this.id);
+    this.genero = await generoapi.BuscaFilmesPorGeneroP(this.id);
   },
   methods: {
     getPosterUrl(poster_path) {
@@ -22,7 +25,7 @@ export default {
 
   watch: {
     async id() {
-      this.filme = await generoapi.BuscaFilmesPorGeneroP(this.id);
+      this.genero = await generoapi.BuscaFilmesPorGeneroP(this.id);
     },
   },
 };
@@ -31,14 +34,14 @@ export default {
 <template>
   <div class="main">
     <div>
-      <p>{{ filme }}</p>
+      <p>  filme </p>
     </div>
     <div class="conteudo">
       <PictureCard
-        v-for="comedia of comedias"
-        :key="comedia.id"
-        :picture_src="getPosterUrl(comedia.poster_path)"
-        :pic_link="comedia"
+        v-for="genero of generos"
+        :key="genero.id"
+        :picture_src="getPosterUrl(genero.poster_path)"
+        :pic_link="genero"
       />
     </div>
   </div>
