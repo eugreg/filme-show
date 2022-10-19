@@ -30,6 +30,7 @@ const router = createRouter({
       path: "/pesquisa",
       nome: "pesquisa",
       component: PaginaPesquisa,
+      props: true,
     },
     {
       path: "/lancamento",

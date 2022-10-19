@@ -7,25 +7,25 @@ export default {
   props: ["id"],
   data() {
     return {
-      genero: {},
-      generos: [],
+      filmes: [],
+      generoAtual: {},
     };
   },
-  async created(){
-    this.generos = await generoapi.BuscaFilmesPorGeneroP();
-  },
-  async mounted() {
-    this.genero = await generoapi.BuscaFilmesPorGeneroP(this.id);
+  async created() {
+    await this.buscarFilmes();
   },
   methods: {
     getPosterUrl(poster_path) {
       return `https://image.tmdb.org/t/p/w500${poster_path}`;
     },
+    async buscarFilmes() {
+      this.filmes = await generoapi.BuscaFilmesPorGeneroP(this.id);
+      this.generoAtual = await generoapi.BuscaGeneroPorId(this.id);
+    },
   },
-
   watch: {
     async id() {
-      this.genero = await generoapi.BuscaFilmesPorGeneroP(this.id);
+      await this.buscarFilmes();
     },
   },
 };
@@ -34,14 +34,14 @@ export default {
 <template>
   <div class="main">
     <div>
-      <p>  filme </p>
+      <p>{{ generoAtual.name }}</p>
     </div>
     <div class="conteudo">
       <PictureCard
-        v-for="genero of generos"
-        :key="genero.id"
-        :picture_src="getPosterUrl(genero.poster_path)"
-        :pic_link="genero"
+        v-for="filme of filmes"
+        :key="filme.id"
+        :picture_src="getPosterUrl(filme.poster_path)"
+        :pic_link="filme"
       />
     </div>
   </div>
