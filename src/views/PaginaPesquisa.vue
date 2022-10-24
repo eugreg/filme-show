@@ -16,9 +16,9 @@ export default {
       return `https://image.tmdb.org/t/p/w500${poster_path}`;
     },
     async search() {
-      const url = ` https://api.themoviedb.org/3/search/movie?api_key=a37701b7a0845f3785cd83eb23add599&language=pt-BR&query=${this.original_title}&page=1&include_adult=false`;
+      const url = ` https://api.themoviedb.org/3/search/movie?api_key=a37701b7a0845f3785cd83eb23add599&language=pt-BR&query=${this.valor_pesquisa}&page=1&include_adult=false`;
       const { data } = await axios.get(url);
-      this.original_title = data;
+      this.pesquisas = data.results;
     },
   },
 };
