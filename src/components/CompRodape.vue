@@ -1,5 +1,5 @@
 <template>
   <footer>
-    <P> FilmeShow</P>
+    <p> FilmeShow</p>
   </footer>
 </template>

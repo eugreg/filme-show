@@ -1,9 +1,10 @@
 <script>
+import TitleComp from '@/components/template/TitleComp.vue'
 import PictureCard from "../components/PictureCard.vue";
 import FilmeApi from "../api/Filmes.js";
 const filmeapi = new FilmeApi();
 export default {
-  components: { PictureCard },
+  components: { PictureCard, TitleComp },
   data() {
     return {
       filmes: [],
@@ -22,9 +23,7 @@ export default {
 
 <template>
   <div class="main">
-    <div>
-      <p>Adicionados Recentemente</p>
-    </div>
+    <TitleComp titulo="Adicionados Recentemente" />
     <div class="conteudo">
       <PictureCard
         v-for="filme of filmes"
