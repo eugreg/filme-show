@@ -31,6 +31,7 @@ export default {
         :picture_src="getPosterUrl(filme.poster_path)"
         :pic_link="filme"
       />
+      
     </div>
   </div>
 </template>

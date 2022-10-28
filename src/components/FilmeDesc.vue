@@ -23,7 +23,7 @@ export default {
       return `https://image.tmdb.org/t/p/w500${posterPath}`;
     },
     getVideoUrl(key) {
-      return `https://www.youtube.com/watch?v=${key}`;
+      return `https://www.youtube.com/embed/${key}`;
     },
   },
 };
@@ -35,10 +35,16 @@ export default {
         :src="getPosterUrl(filme.poster_path)"
         alt="linda imagem do avatar"
       />
-      <video v-if="videos" width="320" height="240" controls>
-        <source :src="getVideoUrl(videos[0].key)" />
-        Your browser does not support the video tag.
-      </video>
+      <iframe
+        v-if="videos" 
+        width="560"
+        height="315"
+        :src="getVideoUrl(videos[0].key)"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
     </div>
     <div class="info-movi">
       <div class="titulo">{{ filme.title }}</div>
