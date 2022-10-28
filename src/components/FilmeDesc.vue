@@ -36,7 +36,7 @@ export default {
         alt="linda imagem do avatar"
       />
       <iframe
-        v-if="videos" 
+        v-if="videos"
         width="560"
         height="315"
         :src="getVideoUrl(videos[0].key)"
@@ -50,6 +50,10 @@ export default {
       <div class="titulo">{{ filme.title }}</div>
       <div class="descricao">
         {{ filme.overview }}
+      </div>
+      <div class="descricao">
+        <h2>lançamento: {{ filme.release_date }}</h2>
+        <h3>Avaliação dos usuários:{{  Math.round(filme.vote_average) }}</h3>
       </div>
     </div>
   </div>

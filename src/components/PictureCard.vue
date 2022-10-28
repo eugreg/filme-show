@@ -21,6 +21,7 @@ export default {
       <RouterLink :to="retornaUrlFilme(pic_link.id)">
         <img :src="picture_src" />
       </RouterLink>
+       
     </div>
   </article>
 </template>
