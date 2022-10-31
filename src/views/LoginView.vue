@@ -1,16 +1,38 @@
 <script>
-export default {};
+import { mapStores, mapState, mapActions } from "pinia";
+import { useAuthStore } from "@/stores/auth";
+export default {
+  data() {
+    return {
+      user: "",
+      passoword: "",
+    };
+  },
+setup(){
+  const store = useAuthStore()
+},
+  computed: {
+    ...mapStores(useAuthStore),
+    ...mapState(useAuthStore, ["user"]),
+    ...mapState(useAuthStore, ["passoword"]),
+  },
+  methods: {
+    ...mapActions(useAuthStore, ["passowordData"]),
+    ...mapActions(useAuthStore, ["userData"]),
+    login() {console.log('HERE')},
+  },
+};
 </script>
 <template>
-  <div class="centralizando">
+  <div @submit.stop.prevent="login" class="centralizando">
     <div class="forms-login">
       <div class="infos">
         <label for="">Usuario</label>
-        <input type="text" />
+        <input v-model="userData" type="text" />
       </div>
       <div class="infos">
         <label for="">Senha</label>
-        <input type="text" />
+        <input v-model="passoword" type="text" />
       </div>
       <div><button>entrar</button></div>
     </div>
