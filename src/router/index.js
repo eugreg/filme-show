@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import PaginaFilme from "../views/PaginaFilme.vue";
 import PaginaPesquisa from "../views/PaginaPesquisa.vue";
 import PaginaLancamento from "../views/PaginaLancamento.vue";
+import LoginView from "../views/LoginView.vue";
 
 import PaginaCategorias from "../views/PaginaCategorias.vue";
 
@@ -36,6 +37,11 @@ const router = createRouter({
       path: "/lancamento",
       nome: "lancameno",
       component: PaginaLancamento,
+    },
+    {
+      path: "/login",
+      nome: "login",
+      component: LoginView,
     },
   ],
 });

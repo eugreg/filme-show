@@ -5,6 +5,26 @@
   padding: 0;
   font-family: 'Roboto Mono', monospace;
 }
+.centralizando {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+.infos {
+  display: flex;
+  width: 58%;
+  flex-direction: column;
+}
+.forms-login{
+  border: 2px solid yellow;
+  display: flex;
+  width: 40%;
+  height: 40vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 a{
   text-decoration: none;
