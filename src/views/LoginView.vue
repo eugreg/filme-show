@@ -10,6 +10,7 @@ export default {
   },
 setup(){
   const store = useAuthStore()
+  return store
 },
   computed: {
     ...mapStores(useAuthStore),
@@ -19,22 +20,26 @@ setup(){
   methods: {
     ...mapActions(useAuthStore, ["passowordData"]),
     ...mapActions(useAuthStore, ["userData"]),
-    login() {console.log('HERE')},
+    submit() {console.log('HERE')},
   },
 };
 </script>
 <template>
-  <div @submit.stop.prevent="login" class="centralizando">
-    <div class="forms-login">
-      <div class="infos">
-        <label for="">Usuario</label>
-        <input v-model="userData" type="text" />
+  <form  @submit.prevent="submit">   
+
+    <div  class="centralizando">
+      <div class="forms-login">
+        <div class="infos">
+          <label for="">Usuario</label>
+          <input v-model="userData" type="text" />
+        </div>
+        <div class="infos">
+          <label for="">Senha</label>
+          <input v-model="passowordData" type="text" />
+        </div>
+        <div><button >entrar</button></div>
       </div>
-      <div class="infos">
-        <label for="">Senha</label>
-        <input v-model="passoword" type="text" />
-      </div>
-      <div><button>entrar</button></div>
     </div>
-  </div>
-</template>
+  </form>
+  </template>
+  

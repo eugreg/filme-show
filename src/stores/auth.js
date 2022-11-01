@@ -10,6 +10,7 @@ export const useAuthStore = defineStore("auth", () => {
   async function senha(passoword) {
     passowordData.value = { ...passoword }
   }
+  
 
   return { login, senha, passowordData, userData };
 });
