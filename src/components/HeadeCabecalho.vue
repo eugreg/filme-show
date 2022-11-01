@@ -53,6 +53,9 @@ export default {
             >Pesquisar
           </RouterLink>
         </button>
+        <RouterLink to="/minha-conta" class="button-pesquisar"
+            >Pesquisar
+          </RouterLink>
       </div>
     </div>
   </header>
