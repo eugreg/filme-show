@@ -1,16 +1,26 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
+import LoginApi from "@/api/login"
+const loginapi = new LoginApi()
 
 export const useAuthStore = defineStore("auth", () => {
+  const globalToken = ref("");
+  const userToken = ref("");
+  const sessionId = ref("");
   const userData = ref({});
-  async function login(user) {
-    userData.value = { ...user }
+  async function token() {
+    globalToken.value = await loginapi.GetToken()
   }
-  const passowordData = ref({});
-  async function senha(passoword) {
-    passowordData.value = { ...passoword }
+
+  async function login(username, password) {
+    userToken.value = await loginapi.Login(username, password, globalToken.value)
+    sessionId.value = await loginapi.Session(userToken.value)
+    userData.value = await loginapi.GetProfile(sessionId.value)
+    // userData.value = { ...user}
   }
   
+  
 
-  return { login, senha, passowordData, userData };
+
+  return { login,   token, globalToken, userToken,sessionId,userData};
 });

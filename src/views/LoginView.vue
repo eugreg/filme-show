@@ -4,40 +4,41 @@ import { useAuthStore } from "@/stores/auth";
 export default {
   data() {
     return {
-      user: "",
-      passoword: "",
+      username: "",
+      password: "",
     };
   },
-setup(){
-  const store = useAuthStore()
-  return store
+async created(){
+  await this.token()
+
 },
   computed: {
     ...mapStores(useAuthStore),
-    ...mapState(useAuthStore, ["user"]),
-    ...mapState(useAuthStore, ["passoword"]),
+    ...mapState(useAuthStore, ["userData"]),
   },
   methods: {
-    ...mapActions(useAuthStore, ["passowordData"]),
-    ...mapActions(useAuthStore, ["userData"]),
-    submit() {console.log('HERE')},
+    ...mapActions(useAuthStore, ["token", "login"]),
+     async submit() {
+    await this.login(this.username, this.password)
+     },
   },
 };
 </script>
 <template>
+  {{userData.name}}
   <form  @submit.prevent="submit">   
 
     <div  class="centralizando">
       <div class="forms-login">
         <div class="infos">
           <label for="">Usuario</label>
-          <input v-model="userData" type="text" />
+          <input v-model="username" type="text" />
         </div>
         <div class="infos">
           <label for="">Senha</label>
-          <input v-model="passowordData" type="text" />
+          <input v-model="password" type="text" />
         </div>
-        <div><button >entrar</button></div>
+        <div><button type="submit" >entrar</button></div>
       </div>
     </div>
   </form>
