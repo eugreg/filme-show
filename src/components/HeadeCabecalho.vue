@@ -1,6 +1,7 @@
-<script>
-import { mapStores, mapState, mapActions } from "pinia";
-import { useGenreStore } from "@/stores/genres";
+<script>  
+import { mapStores, mapState, mapActions } from "pinia";   
+  import { useGenreStore } from "@/stores/genres";
+  import { useAuthStore } from "@/stores/auth2";
 export default {
   data() {
     return {
@@ -10,9 +11,16 @@ export default {
   async created() {
     this.generos = await this.getAllGenres();
   },
+// setup(){
+//    const authStore = useAuthStore();
+//    const { userData: authuser } = storeToRefs(authStore);
+//  },
   computed: {
+    ...mapStores(useAuthStore),
     ...mapStores(useGenreStore),
+    ...mapState(useAuthStore, ["userData"]),
     ...mapState(useGenreStore, ["genres"]),
+    
   },
   methods: {
     ...mapActions(useGenreStore, ["getAllGenres"]),
@@ -47,7 +55,7 @@ export default {
         >
       </div>
       <div>
-        <RouterLink to="/login"><span class="cabecalho-span">Minha Conta</span></RouterLink>
+        <RouterLink to="/login"><span class="cabecalho-span">{{userData.name}}</span></RouterLink>
         <button>
           <RouterLink to="/pesquisa" class="button-pesquisar"
             >Pesquisar

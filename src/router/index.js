@@ -7,7 +7,6 @@ import LoginView from "../views/LoginView.vue";
 import PaginaCategorias from "../views/PaginaCategorias.vue";
 import { useAuthStore } from "@/stores/auth";
 
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -44,22 +43,17 @@ const router = createRouter({
       nome: "login",
       component: LoginView,
     },
-  
   ],
-  
 });
 
-
 router.beforeEach(async (to) => {
-  // redirect to login page if not logged in and trying to access a restricted page
-  const publicPages = ['/login'];
+  const publicPages = ["/login"];
   const sessionId = !publicPages.includes(to.path);
   const auth = useAuthStore();
 
   if (sessionId && !auth.userToken) {
     auth.returnUrl = to.fullPath;
-    return '/'
-    
+    return "/";
   }
 });
 
