@@ -36,7 +36,7 @@ export default {
     <div class="cabecalho">
       <div>
         <span class="cabecalho-span">
-          <RouterLink to="/">FilmeShow</RouterLink>
+          <RouterLink to="/filme">FilmeShow</RouterLink>
         </span>
         <span>
           <select v-model="genero" @change="go" class="select-cabecalho">
@@ -55,15 +55,13 @@ export default {
         >
       </div>
       <div>
-        <RouterLink to="/login"><span class="cabecalho-span">{{userData.name}}</span></RouterLink>
+        <RouterLink to="/minha-conta"><span class="cabecalho-span">{{userData.name}}</span></RouterLink>
         <button>
           <RouterLink to="/pesquisa" class="button-pesquisar"
             >Pesquisar
           </RouterLink>
         </button>
-        <RouterLink to="/minha-conta" class="button-pesquisar"
-            >Pesquisar
-          </RouterLink>
+        
       </div>
     </div>
   </header>

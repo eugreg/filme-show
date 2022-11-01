@@ -16,7 +16,7 @@ export const useAuthStore = defineStore("auth", () => {
     userToken.value = await loginapi.Login(username, password, globalToken.value)
     sessionId.value = await loginapi.Session(userToken.value)
     userData.value = await loginapi.GetProfile(sessionId.value)
-    router.push(this.goPagehome || '/');
+    router.push(this.goPagehome || '/filme');
     // userData.value = { ...user}
   }
 

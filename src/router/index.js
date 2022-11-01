@@ -5,6 +5,7 @@ import PaginaPesquisa from "../views/PaginaPesquisa.vue";
 import PaginaLancamento from "../views/PaginaLancamento.vue";
 import LoginView from "../views/LoginView.vue";
 import PaginaCategorias from "../views/PaginaCategorias.vue";
+import MinhacontaView from "../views/MinhacontaView.vue";
 import { useAuthStore } from "@/stores/auth";
 
 const router = createRouter({
@@ -12,8 +13,8 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: HomeView,
+      name: "login",
+      component: LoginView,
     },
     {
       path: "/filmes/:id",
@@ -39,21 +40,26 @@ const router = createRouter({
       component: PaginaLancamento,
     },
     {
-      path: "/login",
+      path: "/filme",
+      nome: "filme",
+      component: HomeView,
+    },
+    {
+      path: "/minha-conta",
       nome: "login",
-      component: LoginView,
+      component: MinhacontaView,
     },
   ],
 });
 
 router.beforeEach(async (to) => {
-  const publicPages = ["/login"];
+  const publicPages = ["/"];
   const sessionId = !publicPages.includes(to.path);
   const auth = useAuthStore();
 
   if (sessionId && !auth.userToken) {
     auth.returnUrl = to.fullPath;
-    return "/";
+    return "/filme";
   }
 });
 
