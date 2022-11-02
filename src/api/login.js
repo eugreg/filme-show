@@ -13,14 +13,14 @@ export default class LoginApi {
     );
     return response.data.request_token
   }
-  async Session(request_token){
+  async Session(request_token) {
     const response = await axios.post(
-        "https://api.themoviedb.org/3/authentication/session/new?api_key=a37701b7a0845f3785cd83eb23add599", {request_token}
+      "https://api.themoviedb.org/3/authentication/session/new?api_key=a37701b7a0845f3785cd83eb23add599", { request_token }
     );
-      return response.data.session_id
+    return response.data.session_id
   }
-  async GetProfile(session_id){
-      const response = await axios.get(`https://api.themoviedb.org/3/account?api_key=a37701b7a0845f3785cd83eb23add599&session_id=${session_id}`)
-      return response.data
+  async GetProfile(session_id) {
+    const response = await axios.get(`https://api.themoviedb.org/3/account?api_key=a37701b7a0845f3785cd83eb23add599&session_id=${session_id}`)
+    return response.data
   }
 }

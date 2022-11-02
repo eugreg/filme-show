@@ -23,6 +23,7 @@ export default {
     
   },
   methods: {
+    
     ...mapActions(useGenreStore, ["getAllGenres"]),
     go() {
       this.$router.push(`/filmes_por_genero/${this.genero}`);
@@ -55,7 +56,7 @@ export default {
         >
       </div>
       <div>
-        <RouterLink to="/minha-conta"><span class="cabecalho-span">{{userData.name}}</span></RouterLink>
+        <RouterLink to="/minha-conta"><span class="cabecalho-span">{{userData.username}}</span></RouterLink>
         <button>
           <RouterLink to="/pesquisa" class="button-pesquisar"
             >Pesquisar

@@ -6,6 +6,7 @@ export default {
     return {
       username: "",
       password: "",
+      
     };
   },
 async created(){
@@ -15,6 +16,7 @@ async created(){
   computed: {
     ...mapStores(useAuthStore),
     ...mapState(useAuthStore, ["userData"]),
+    ...mapState(useAuthStore, ["userToken"]),
   },
   methods: {
     ...mapActions(useAuthStore, ["token", "login"]),
@@ -39,6 +41,12 @@ async created(){
           <input v-model="password" type="text" />
         </div>
         <div><button type="submit" >entrar</button></div>
+      </div>
+      <div  v-if="userToken.false">: <p>
+
+        {{userToken.status_message}}
+      </p>
+        
       </div>
     </div>
   </form>

@@ -1,4 +1,6 @@
 <script>
+  import { mapStores, mapState, mapActions } from "pinia";
+  import { useFavStore } from "@/stores/marcafavorito";
 import FilmeApi from "../api/Filmes.js";
 const filmeapi = new FilmeApi();
 export default {
@@ -12,6 +14,11 @@ export default {
   //   console.log(this.filme.id);
   //   this.videos = await filmeapi.BuscarVideos(this.filme.id);
   // },
+
+  computed: {
+    ...mapStores(useFavStore),
+    ...mapState(useFavStore, ["favorito"]),
+  },
   watch: {
     async filme() {
       console.log(this.filme.id);
@@ -19,6 +26,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions(useFavStore, ["Fav"]),
     getPosterUrl(posterPath) {
       return `https://image.tmdb.org/t/p/w500${posterPath}`;
     },
