@@ -1,17 +1,25 @@
 <script>
- import { mapStores, mapState, mapActions } from "pinia";
-import { useFavStore } from "@/stores/marcafavorito";
+import PictureCard from "../components/PictureCard.vue";
+import { mapStores, mapState, mapActions } from "pinia";
+import { useAuthStore } from "@/stores/auth";
 export default {
+    components: { PictureCard},
   data() {
     return {
-      favoritos: [],
+      favorito: [],
     };
   },
 
   computed: {
-    ...mapStores(useFavStore),
-    ...mapState(useFavStore, ["usermovies"]),
+    ...mapStores(useAuthStore),
+    ...mapState(useAuthStore, ["userMovies"]),
   },
+  methods:{
+
+      getPosterUrl(posterPath) {
+          return `https://image.tmdb.org/t/p/w500${posterPath}`;
+        },
+    },
 };
 </script>
 
@@ -19,10 +27,10 @@ export default {
 
     <div class="conteudo">
       <PictureCard
-        v-for="favoritos of usermovies "
-        :key="favoritos.id"
-        :picture_src="getPosterUrl(favoritos.poster_path)"
-        :pic_link="favoritos"
+        v-for="favorito of userMovies "
+        :key="favorito.id"
+        :picture_src="getPosterUrl(favorito.poster_path)"
+        :pic_link="favorito"
       />
       
     </div>

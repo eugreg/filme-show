@@ -1,7 +1,9 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
 import LoginApi from "@/api/login"
+import FavoritoApi from "@/api/favorito";
 import router from "../router";
+const favoritoapi = new FavoritoApi();
 const loginapi = new LoginApi()
 
 export const useAuthStore = defineStore("auth", () => {
@@ -9,6 +11,8 @@ export const useAuthStore = defineStore("auth", () => {
   const userToken = ref("");
   const sessionId = ref("");
   const userData = ref({});
+  const userMovies = ref([]);
+  
   async function token() {
     globalToken.value = await loginapi.GetToken()
   }
@@ -19,9 +23,15 @@ export const useAuthStore = defineStore("auth", () => {
     router.push(this.goPagehome || '/filme');
     // userData.value = { ...user}
   }
+  
+  async function getfilme() {
+    userMovies.value = await favoritoapi.GetMovies(sessionId.value)
+    
+    
+  }
 
 
 
 
-  return { login, token, globalToken, userToken, sessionId, userData };
+  return { login, token, globalToken, userToken, sessionId, userData, userMovies, getfilme };
 });
