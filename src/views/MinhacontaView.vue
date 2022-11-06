@@ -15,6 +15,7 @@ export default {
     ...mapState(useAuthStore, ["userMovies"]),
   },
   methods:{
+    ...mapActions(useAuthStore, ["login", "token", "getfilme"]),
 
       getPosterUrl(posterPath) {
           return `https://image.tmdb.org/t/p/w500${posterPath}`;
