@@ -1,6 +1,7 @@
 <script>
-  import { mapStores, mapState, mapActions } from "pinia";
-  import { useFavStore } from "@/stores/marcafavorito";
+
+import { mapStores, mapState, mapActions } from "pinia";
+import { useAuthStore } from "@/stores/auth";
 import FilmeApi from "../api/Filmes.js";
 const filmeapi = new FilmeApi();
 export default {
@@ -16,8 +17,8 @@ export default {
   // },
 
   computed: {
-    ...mapStores(useFavStore),
-    ...mapState(useFavStore, ["favorito"]),
+    ...mapStores(useAuthStore),
+    ...mapState(useAuthStore, ["userFav"]),
   },
   watch: {
     async filme() {
@@ -26,12 +27,16 @@ export default {
     },
   },
   methods: {
-    ...mapActions(useFavStore, ["Fav"]),
+    ...mapActions(useAuthStore, ["salvarfilme"]),
     getPosterUrl(posterPath) {
       return `https://image.tmdb.org/t/p/w500${posterPath}`;
     },
     getVideoUrl(key) {
       return `https://www.youtube.com/embed/${key}`;
+    },
+    async salvar(movie_id) {
+      await this.salvarfilme(movie_id);
+      alert("Item adicionar aos favoritos");
     },
   },
 };
@@ -60,8 +65,9 @@ export default {
         {{ filme.overview }}
       </div>
       <div class="descricao">
+        <button @click="salvar(filme.id)">curtir</button>
         <h2>lançamento: {{ filme.release_date }}</h2>
-        <h3>Avaliação dos usuários:{{  Math.round(filme.vote_average) }}</h3>
+        <h3>Avaliação dos usuários:{{ Math.round(filme.vote_average) }}</h3>
       </div>
     </div>
   </div>

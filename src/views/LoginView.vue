@@ -6,13 +6,11 @@ export default {
     return {
       username: "",
       password: "",
-      
     };
   },
-async created(){
-  await this.token()
-
-},
+  async created() {
+    await this.token();
+  },
   computed: {
     ...mapStores(useAuthStore),
     ...mapState(useAuthStore, ["userData"]),
@@ -20,17 +18,17 @@ async created(){
   },
   methods: {
     ...mapActions(useAuthStore, ["token", "login"]),
-     async submit() {
-    await this.login(this.username, this.password)
-     },
+    async submit() {
+      await this.login(this.username, this.password);
+      this.$router.push("/filme");
+    },
   },
 };
 </script>
 <template>
-  {{userData.name}}
-  <form  @submit.prevent="submit">   
-
-    <div  class="centralizando">
+  {{ userData.name }}
+  <form @submit.prevent="submit">
+    <div class="centralizando">
       <div class="forms-login">
         <div class="infos">
           <label for="">Usuario</label>
@@ -40,15 +38,14 @@ async created(){
           <label for="">Senha</label>
           <input v-model="password" type="text" />
         </div>
-        <div><button type="submit" >entrar</button></div>
+        <div><button type="submit">entrar</button></div>
       </div>
-      <div  v-if="userToken.false">: <p>
-
-        {{userToken.status_message}}
-      </p>
-        
+      <div v-if="userToken.false">
+        :
+        <p>
+          {{ userToken.status_message }}
+        </p>
       </div>
     </div>
   </form>
-  </template>
-  
+</template>

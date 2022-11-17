@@ -1,7 +1,7 @@
-<script>  
-import { mapStores, mapState, mapActions } from "pinia";   
-  import { useGenreStore } from "@/stores/genres";
-  import { useAuthStore } from "@/stores/auth2";
+<script>
+import { mapStores, mapState, mapActions } from "pinia";
+import { useGenreStore } from "@/stores/genres";
+import { useAuthStore } from "@/stores/auth";
 export default {
   data() {
     return {
@@ -11,19 +11,17 @@ export default {
   async created() {
     this.generos = await this.getAllGenres();
   },
-// setup(){
-//    const authStore = useAuthStore();
-//    const { userData: authuser } = storeToRefs(authStore);
-//  },
+  // setup(){
+  //    const authStore = useAuthStore();
+  //    const { userData: authuser } = storeToRefs(authStore);
+  //  },
   computed: {
     ...mapStores(useAuthStore),
     ...mapStores(useGenreStore),
     ...mapState(useAuthStore, ["userData"]),
     ...mapState(useGenreStore, ["genres"]),
-    
   },
   methods: {
-    
     ...mapActions(useGenreStore, ["getAllGenres"]),
     go() {
       this.$router.push(`/filmes_por_genero/${this.genero}`);
@@ -56,13 +54,16 @@ export default {
         >
       </div>
       <div>
-        <RouterLink to="/minha-conta"><span class="cabecalho-span">{{userData.username}}</span></RouterLink>
+        <RouterLink to="/minha-conta"
+          ><span class="cabecalho-span">{{
+            userData.username
+          }}</span></RouterLink
+        >
         <button>
           <RouterLink to="/pesquisa" class="button-pesquisar"
             >Pesquisar
           </RouterLink>
         </button>
-        
       </div>
     </div>
   </header>
