@@ -19,9 +19,9 @@ export default {
   },
   methods: {
     ...mapActions(useAuthStore, ["login", "token", "getfilme", "logout"]),
-    async submit() {
-      await this.logout(this.sessionId);
-      this.$router.push("/filme");
+    async deslogar(sessionId) {
+      await this.logout(sessionId);
+      this.$router.push("/");
     },
 
     getPosterUrl(posterPath) {
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <template>
-<button type="submit">logout</button>
+<button @click="deslogar(seissionId)">logout</button>
   <div class="conteudo">
     <PictureCard
       v-for="favorito of userMovies"
