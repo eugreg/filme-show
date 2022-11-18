@@ -19,8 +19,8 @@ export default {
   },
   methods: {
     ...mapActions(useAuthStore, ["login", "token", "getfilme", "logout"]),
-    async deslogar(sessionId) {
-      await this.logout(sessionId);
+    async deslogar(session_id) {
+      this.logout(this.sessionId, session_id);
       this.$router.push("/");
     },
 
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <template>
-<button @click="deslogar(seissionId)">logout</button>
+<button @click="deslogar(sessionId)">logout</button>
   <div class="conteudo">
     <PictureCard
       v-for="favorito of userMovies"

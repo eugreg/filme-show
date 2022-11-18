@@ -10,7 +10,8 @@ const loginapi = new LoginApi();
 export const useAuthStore = defineStore("auth", () => {
   const globalToken = useStorage("globalToken", "");
   const userToken = useStorage("userToken", "");
-  const sessionId = useStorage("sessionId", "");
+  const sessionId = ref("");
+  // const sessionId = useStorage("sessionId", "");
   const userData = useStorage("userData", {});
   const userMovies = useStorage("userMovies", []);
   const userLogout = ref("");
@@ -30,12 +31,13 @@ export const useAuthStore = defineStore("auth", () => {
     // router.push(this.goPagehome || "/filme");
     // userData.value = { ...user}
   }
-  // async function logout(session_id){
-  //   userLogout.value = await favoritoapi.DeleteLogin(sessionId.value, session_id)
-  // }
-  async function logout() {
-    localStorage.DeleteLogin(session_id.value);
+  async function logout(session_id) {
+    favoritoapi.DeleteLogin(userToken.value, session_id);
   }
+  // async function logout() {
+  // sessionId.value = null,
+  //   localStorage.DeleteLogin()
+  // }
 
   async function getfilme() {
     userMovies.value = await favoritoapi.GetMovies(sessionId.value);
