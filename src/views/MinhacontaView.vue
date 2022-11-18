@@ -12,13 +12,17 @@ export default {
 
   computed: {
     ...mapStores(useAuthStore),
-    ...mapState(useAuthStore, ["userMovies", "userLogout"]),
+    ...mapState(useAuthStore, ["userMovies", "userLogout","sessionId"]),
   },
   async created() {
     await this.getfilme();
   },
   methods: {
     ...mapActions(useAuthStore, ["login", "token", "getfilme", "logout"]),
+    async submit() {
+      await this.logout(this.sessionId);
+      this.$router.push("/filme");
+    },
 
     getPosterUrl(posterPath) {
       return `https://image.tmdb.org/t/p/w500${posterPath}`;
@@ -28,7 +32,7 @@ export default {
 </script>
 
 <template>
-<button @click="logout(session_id)">logout</button>
+<button type="submit">logout</button>
   <div class="conteudo">
     <PictureCard
       v-for="favorito of userMovies"

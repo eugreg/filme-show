@@ -18,10 +18,14 @@ export default class FavoritoApi {
     );
     return response.data.results;
   }
-  async DeleteLogin(session_id){
+  async DeleteLogin(session_id) {
+    const info = {
+      session_id,
+    };
     const response = await axios.delete(
-      `https://api.themoviedb.org/3/authentication/session?api_key=a37701b7a0845f3785cd83eb23add599`, session_id
-    ); 
+      `https://api.themoviedb.org/3/authentication/session?api_key=a37701b7a0845f3785cd83eb23add599`,
+      info
+    );
     return response.data;
   }
 }

@@ -30,8 +30,8 @@ export const useAuthStore = defineStore("auth", () => {
     // router.push(this.goPagehome || "/filme");
     // userData.value = { ...user}
   }
-  async function logout(session_id){
-    userLogout.value = await favoritoapi.DeleteLogin(session_id)
+  async function logout(){
+    userLogout.value = await favoritoapi.DeleteLogin(sessionId.value)
   }
 
   async function getfilme() {
