@@ -27,16 +27,28 @@ export default {
     },
   },
   methods: {
-    ...mapActions(useAuthStore, ["salvarfilme"]),
+    ...mapActions(useAuthStore, ["salvarfilme", "salvarWatch"]),
     getPosterUrl(posterPath) {
       return `https://image.tmdb.org/t/p/w500${posterPath}`;
     },
     getVideoUrl(key) {
       return `https://www.youtube.com/embed/${key}`;
     },
-    async salvar(movie_id) {
-      await this.salvarfilme(movie_id);
-      alert("Item adicionar aos favoritos");
+    async salvar(media_id) {
+      await this.salvarfilme(media_id);
+      this.$toast.success(`Filme salvo com sucesso`,{
+        type: 'success',
+        position: 'top-right'
+      });
+      setTimeout(this.$toast.clear, 3000)
+    },
+    async salvar2(media_id) {
+      await this.salvarWatch(media_id);
+      this.$toast.success(`Filme salvo com sucesso`,{
+        type: 'success',
+        position: 'top-right'
+      });
+      setTimeout(this.$toast.clear, 3000)
     },
   },
 };
@@ -66,6 +78,7 @@ export default {
       </div>
       <div class="descricao">
         <button @click="salvar(filme.id)">curtir</button>
+        <button @click="salvar2(filme.id)">assistir mais tarde</button>
         <h2>lançamento: {{ filme.release_date }}</h2>
         <h3>Avaliação dos usuários:{{ Math.round(filme.vote_average) }}</h3>
       </div>

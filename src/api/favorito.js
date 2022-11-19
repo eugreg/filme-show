@@ -18,14 +18,24 @@ export default class FavoritoApi {
     );
     return response.data.results;
   }
-  async DeleteLogin(session_id) {
+  
+  async GetWatch(session_id) {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/account/{account_id}/watchlist/movies?api_key=a37701b7a0845f3785cd83eb23add599&language=pt-BR&session_id=${session_id}&sort_by=created_at.asc&page=1`
+    );
+    return response.data.results;
+  }
+  async PostWatch(session_id, media_id) {
     const info = {
-      session_id,
+      media_type: "movie",
+      media_id,
+      watchlist: true
     };
-    const response = await axios.delete(
-      `https://api.themoviedb.org/3/authentication/session?api_key=a37701b7a0845f3785cd83eb23add599`,
+    const response = await axios.post(
+      `
+      https://api.themoviedb.org/3/account/{account_id}/watchlist?api_key=a37701b7a0845f3785cd83eb23add599&session_id=${session_id}`,
       info
     );
     return response.data;
-  }
+    } 
 }
