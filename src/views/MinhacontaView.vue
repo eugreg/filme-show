@@ -25,13 +25,21 @@ export default {
     //   Object.assign(this, this.userToken);
     // },
 
+    ...mapActions(useAuthStore, [
+      "login",
+      "token",
+      "getfilme",
+      "logout",
+      "getWatch",
+    ]),
 
-    ...mapActions(useAuthStore, ["login", "token", "getfilme", "logout", "getWatch"]),
-
-
-    async deslogar(session_id) {
-      await this.logout(session_id);
-      this.$router.push("/");
+    async deslogar() {
+      try {
+        await this.logout();
+        this.$router.push("/");
+      } catch (e) {
+        alert("Aconteceu um erro")
+      }
     },
 
     getPosterUrl(posterPath) {
@@ -42,15 +50,23 @@ export default {
 </script>
 
 <template>
-  <button @click="deslogar(user.session_id)">logout</button>
+  <button @click="deslogar()">logout</button>
   <div class="conteudo">
-    <PictureCard v-for="favorito of userMovies" :key="favorito.id" :picture_src="getPosterUrl(favorito.poster_path)"
-      :pic_link="favorito" />
+    <PictureCard
+      v-for="favorito of userMovies"
+      :key="favorito.id"
+      :picture_src="getPosterUrl(favorito.poster_path)"
+      :pic_link="favorito"
+    />
   </div>
 
-  <p>   watch list </p>
+  <p>watch list</p>
   <div class="conteudo">
-    <PictureCard v-for="favorito of userWatch" :key="favorito.id" :picture_src="getPosterUrl(favorito.poster_path)"
-      :pic_link="favorito" />
+    <PictureCard
+      v-for="favorito of userWatch"
+      :key="favorito.id"
+      :picture_src="getPosterUrl(favorito.poster_path)"
+      :pic_link="favorito"
+    />
   </div>
 </template>

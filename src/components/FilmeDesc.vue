@@ -48,7 +48,7 @@ export default {
         type: 'success',
         position: 'top-right'
       });
-      setTimeout(this.$toast.clear, 3000)
+      setTimeout(this.$toast.clear, 2000)
     },
   },
 };

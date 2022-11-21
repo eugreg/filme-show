@@ -3,7 +3,6 @@ import { defineStore } from "pinia";
 import LoginApi from "@/api/login";
 import FavoritoApi from "@/api/favorito";
 
-
 import { ref } from "vue";
 // import router from "../router";
 const favoritoapi = new FavoritoApi();
@@ -12,13 +11,12 @@ const loginapi = new LoginApi();
 export const useAuthStore = defineStore("auth", () => {
   const globalToken = useStorage("globalToken", "");
   const userToken = useStorage("userToken", "");
-
- const sessionId = useStorage("sessionId", "");
+  const sessionId = useStorage("sessionId", "");
   const userData = useStorage("userData", {});
   const userMovies = useStorage("userMovies", []);
   const userWatch = ref([]);
   const userFav = ref([]);
-  const userWa = ref([])
+  const userWa = ref([]);
 
   async function token() {
     globalToken.value = await loginapi.GetToken();
@@ -34,14 +32,16 @@ export const useAuthStore = defineStore("auth", () => {
     // router.push(this.goPagehome || "/filme");
     // userData.value = { ...user}
   }
-  async function logout(session_id) {
-    favoritoapi.DeleteLogin(sessionId.value, session_id);
+  async function logout() {
+    // await loginapi.DeleteLogin(sessionId.value);
+    userToken.value = ""
+    sessionId.value = ""
+    userData.value = {}
   }
   // async function logout() {
   // sessionId.value = null,
   //   localStorage.DeleteLogin()
   // }
- 
 
   async function getfilme() {
     userMovies.value = await favoritoapi.GetMovies(sessionId.value);
@@ -59,7 +59,6 @@ export const useAuthStore = defineStore("auth", () => {
   //   Object.assign(this, userToken);
   // }
 
-
   return {
     login,
     token,
@@ -67,10 +66,7 @@ export const useAuthStore = defineStore("auth", () => {
     salvarfilme,
     getWatch,
     salvarWatch,
-   
-
     logout,
-
     userWa,
     userWatch,
     globalToken,
