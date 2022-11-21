@@ -1,5 +1,5 @@
 <script>
-import TitleComp from '@/components/template/TitleComp.vue'
+import TitleComp from "@/components/template/TitleComp.vue";
 import PictureCard from "../components/PictureCard.vue";
 import FilmeApi from "../api/Filmes.js";
 const filmeapi = new FilmeApi();
@@ -31,7 +31,6 @@ export default {
         :picture_src="getPosterUrl(filme.poster_path)"
         :pic_link="filme"
       />
-      
     </div>
   </div>
 </template>
@@ -42,5 +41,6 @@ export default {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 60px;
 }
 </style>

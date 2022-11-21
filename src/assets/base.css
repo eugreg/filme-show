@@ -41,40 +41,16 @@ body{
 
 .cabecalho {
   display: flex;
-  color: white;
-  height: 80px;
-  font-size: 30px;
+  background-color: #032541;
+  height: 60px;
+  font-size: 20px;
   justify-content: space-between;
-  margin-top: 40px;
-  border: solid 2px yellow;
-  border-top: solid black 2px;
-  border-left: solid black 2px;
-  border-right: solid black 2px;
-  background: linear-gradient(0deg, #FFFF00 -129.13%,
-  rgba(217, 217, 217, 0) 50.29%);
 }
 
 .cabecalho span {
-  border-radius: 50px;
   margin-right: 20px;
   padding: 10px;
   margin-left: 50px;
-}
-
-.cabecalho span:hover {
-  background-color: white;
-  color: black; 
-  border-radius: 50px;
-  margin-right: 20px;
-  padding: 10px;
-}
-
-.button-pesquisar{
-  color: black;
-}
-
-.button-pesquisar:hover {
-  color: white;
 }
 
 .cabecalho button {
@@ -84,10 +60,13 @@ body{
   font-size: x-large;
 }
 
-.cabecalho button:hover {
-  background-color: black;
+.select-cabecalho{
+  border: 0px;
   color: white;
-  border: solid 1px white;
+  background-color: #032541;
+  width: 210px;
+  font-size: 20px;
+  padding-bottom: 10px;
 }
 
 .films img {
@@ -110,9 +89,6 @@ p {
   font-size: xx-large;
   margin-left: 420px;
 }
-
-
-
 
 footer { 
   border-top: solid yellow 2px;
@@ -170,9 +146,7 @@ footer p {
 }
 
 .pesquisa input {
-  border: 2px solid gray;
   background-color: black;
-  color: white;
   width: 900px;
   height: 140px;
   font-size: 60px;
@@ -227,19 +201,4 @@ footer p {
   padding-bottom: 100px;
 }
 
-.select-cabecalho{
-  border: 0px;
-  color: white;
-  padding-top: 10px;
-  background-color: black;
-  width: 250px;
-  border-radius: 50px;
-  font-size: 30px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-}
 
-.select-cabecalho:hover{
-  color: black;
-  background-color: white;
-}
