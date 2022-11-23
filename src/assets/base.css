@@ -16,15 +16,6 @@
   width: 58%;
   flex-direction: column;
 }
-.forms-login{
-  border: 2px solid yellow;
-  display: flex;
-  width: 40%;
-  height: 40vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 a{
   text-decoration: none;
@@ -45,11 +36,11 @@ body{
   height: 60px;
   font-size: 20px;
   justify-content: space-between;
+  padding-top: 20px;
 }
 
 .cabecalho span {
   margin-right: 20px;
-  padding: 10px;
   margin-left: 50px;
 }
 
@@ -64,9 +55,9 @@ body{
   border: 0px;
   color: white;
   background-color: #032541;
-  width: 210px;
+  width: 160px;
   font-size: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 
 .films img {
@@ -77,10 +68,11 @@ body{
 .films :hover {
   width: 210px;
   margin: 1px;
-  border-bottom: solid yellow 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 0px;
+  border: #07508C 3px solid;
+}
+
+.films a:hover{
+  border: black 2px solid;
 }
 
 p {
@@ -91,8 +83,8 @@ p {
 }
 
 footer { 
-  border-top: solid yellow 2px;
-  height: 50px;
+  background-color: #032541;
+  height: 80px;
   margin-top: 60px;
 }
 
@@ -100,10 +92,11 @@ footer p {
   display: flex;
   justify-content: center;
   margin: 50px;
+  padding-top: 20px;
 }
 
 .main {
-  margin-top: 200px;
+  margin-top: 150px;
 }
 
 .main p {
@@ -146,6 +139,7 @@ footer p {
 }
 
 .pesquisa input {
+  color: white;
   background-color: black;
   width: 900px;
   height: 140px;
@@ -201,4 +195,39 @@ footer p {
   padding-bottom: 100px;
 }
 
+.forms-login{
+  padding-top: 20px;
+  background-color: #44515c;
+  display: flex;
+  width: 22%;
+  border-radius: 15px;
+  height: 40vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.forms-login label {
+  padding-bottom: 5px;
+}
+
+.btn-entrar{
+  padding: 12px 36px;
+  background-color: white;
+  margin: 20px;
+  border-radius: 10px;
+  border: none;
+}
+
+.input-login{
+  border-radius: 8px;
+  border: none;
+  height: 27px;
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+
+.conteudo-login{
+  padding-top: 60px;
+  padding-bottom: 180px;
+}
