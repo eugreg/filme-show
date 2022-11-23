@@ -1,5 +1,4 @@
 <script>
-
 import { mapStores, mapState, mapActions } from "pinia";
 import { useAuthStore } from "@/stores/auth";
 import FilmeApi from "../api/Filmes.js";
@@ -36,19 +35,19 @@ export default {
     },
     async salvar(media_id) {
       await this.salvarfilme(media_id);
-      this.$toast.success(`Filme salvo com sucesso`,{
-        type: 'success',
-        position: 'top-right'
+      this.$toast.success(`Filme salvo com sucesso`, {
+        type: "success",
+        position: "top-right",
       });
-      setTimeout(this.$toast.clear, 3000)
+      setTimeout(this.$toast.clear, 3000);
     },
     async salvar2(media_id) {
       await this.salvarWatch(media_id);
-      this.$toast.success(`Filme salvo com sucesso`,{
-        type: 'success',
-        position: 'top-right'
+      this.$toast.success(`Filme salvo com sucesso`, {
+        type: "success",
+        position: "top-right",
       });
-      setTimeout(this.$toast.clear, 2000)
+      setTimeout(this.$toast.clear, 2000);
     },
   },
 };
@@ -57,6 +56,7 @@ export default {
   <div class="descMovi">
     <div>
       <img
+        class="poster-filme-pag"
         :src="getPosterUrl(filme.poster_path)"
         alt="linda imagem do avatar"
       />

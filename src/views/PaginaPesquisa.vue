@@ -32,8 +32,7 @@ export default {
         <button type="submit">Buscar</button>
       </form>
     </div>
-    <div class="reposta">
-      <h1>Resultados:</h1>
+    <div class="resposta">
       <div class="conteudo">
         <PictureCard
           v-for="pesquisa of pesquisas"
